@@ -1,0 +1,99 @@
+-- USE statement specifying which database
+USE it330mc_FA19_group1;
+
+-- Delete all data from tables
+DELETE FROM Viewers_Activity;
+DELETE FROM Favorites;
+DELETE FROM Episodes;
+DELETE FROM Shows_Directory;
+DELETE FROM Networks;
+DELETE FROM Viewers;
+DELETE FROM Categories;
+
+-- Insert  all episodes
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('1', '1', '1', '2019-11-02 18:00:00', '1', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('1', '1', '2', '2019-11-02 19:00:00', '1', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('2', '3', '4', '2019-11-03 20:00:00', '2', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('3', '3', '6', '2019-11-04 19:00:00', '2', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('4', '1', '13', '2019-11-04 20:00:00', '4', '30');
+
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('5', '2', '1', '2019-11-05 20:00:00', '3', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('4', '1', '14', '2019-11-05 21:00:00', '4', '30');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('6', '1', '4', '2019-11-06 20:00:00', '1', '30');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('7', '1', '6', '2019-11-06 21:00:00', '2', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('8', '1', '10', '2019-11-07 20:00:00', '3', '60');
+
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('9', '2', '4', '2019-11-07 21:00:00', '4', '30');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('10', '1', '1', '2019-11-08 15:36:00', '1', '60');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('13', '1', '3', '2019-11-09 12:39:00', '3', '30');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('13', '1', '1', '2019-11-09 17:18:00', '3', '30');
+INSERT INTO `it330mc_FA19_group1`.`Episodes` (`showID`, `season`, `episodeNumber`, `showTime`, `showViewer`, `showRunTime`) VALUES ('2', '3', '5', '2019-11-09 19:00:00', '2', '60');
+
+-- Insert all show networks
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('NBC');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('CBS');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('Netflix');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('Hulu');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('The CW');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('Fox');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('ABC');
+INSERT INTO `it330mc_FA19_group1`.`Networks` (`networkName`) VALUES ('Comedy Central');
+
+-- Insert all show categories
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Drama');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Action');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Thriller');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Sitcom');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Superhero');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Crime Fiction');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Reality');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Comedy');
+INSERT INTO `it330mc_FA19_group1`.`Categories` (`showCategory`) VALUES ('Anime');
+
+-- Insert all shows
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('1', 'Law and Order', '1');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('2', 'NCIS', '2');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('3', 'Criminal Minds', '2');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('4', 'Big Bang Theory', '2');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('1', 'Gotham', '3');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('4', 'Parks and Recreation', '3');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('5', 'Arrow', '5');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('1', 'Supernatural', '5');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('4', 'Family Guy', '6');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('6', 'Narcos', '3');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('1', 'Greys Anatomy','7');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('7', 'Impractical Jokers', '8');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('8', 'Scrubs', '3');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('4', 'The Office', '1');
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('9', 'My Hero Academia', '4');
+
+-- Insert all viewers
+INSERT INTO `it330mc_FA19_group1`.`Viewers` (`viewerFirstName`, `viewerLastName`) VALUES ('Jessica', 'Miller');
+INSERT INTO `it330mc_FA19_group1`.`Viewers` (`viewerFirstName`, `viewerLastName`) VALUES ('Leonardo', 'Miller');
+INSERT INTO `it330mc_FA19_group1`.`Viewers` (`viewerFirstName`, `viewerLastName`) VALUES ('Angie', 'Miller');
+INSERT INTO `it330mc_FA19_group1`.`Viewers` (`viewerFirstName`, `viewerLastName`) VALUES ('Raphael', 'Miller');
+
+-- Insert all Viewing activity
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('1', '1', '0', '2019-11-02 18:00:00', '2019-11-02 19:00:00'); 
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('1', '2', '1', '2019-11-02 19:00:00', '2019-11-02 20:00:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('2', '3', '0', '2019-11-03 20:00:00', '2019-11-03 21:00:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('3', '4', '0', '2019-11-04 19:00:00', '2019-11-04 20:00:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('4', '5', '0', '2019-11-04 20:00:00', '2019-11-04 20:30:00');
+
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('3', '6', '0', '2019-11-05 20:00:00', '2019-11-05 21:00:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('4', '7', '1', '2019-11-05 21:00:00', '2019-11-05 21:30:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('1', '8', '0', '2019-11-06 20:00:00', '2019-11-06 20:30:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('2', '9', '0', '2019-11-06 21:00:00', '2019-11-06 22:00:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('3', '10', '0', '2019-11-07 20:00:00', '2019-11-07 21:00:00');
+
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('4', '11', '0', '2019-11-07 21:00:00', '2019-11-07 21:30:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('1', '12', '0', '2019-11-08 15:36:00', '2019-11-08 16:36:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('3', '13', '0', '2019-11-09 12:39:00', '2019-11-09 13:09:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('3', '14', '1', '2019-11-09 17:18:00', '2019-11-09 17:48:00');
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('2', '15', '1', '2019-11-09 19:00:00', '2019-11-09 20:00:00');
+
+-- Insert favorites
+INSERT INTO `it330mc_FA19_group1`.`Favorites` (`viewerID`, `showID`) VALUES ('1', '1');
+INSERT INTO `it330mc_FA19_group1`.`Favorites` (`viewerID`, `showID`) VALUES ('2', '2');
+INSERT INTO `it330mc_FA19_group1`.`Favorites` (`viewerID`, `showID`) VALUES ('3', '13');
+INSERT INTO `it330mc_FA19_group1`.`Favorites` (`viewerID`, `showID`) VALUES ('4', '4');
