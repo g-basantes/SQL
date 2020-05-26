@@ -1,0 +1,85 @@
+-- 1. USE statement specifying database
+USE it330mc_FA19_group1;
+
+-- 2. Generate SQL to "Add a TV Show Category".  Provide example data.
+INSERT INTO `it330mc_FA19_group1`. `Categories`(showCategory) VALUES ('Documentary'); 
+
+-- 3. Generate SQL to "Delete a TV Show Category".  Provide example data.
+DELETE FROM Categories WHERE showCategory = 'reality';
+
+-- 4. Generate SQL to "Add A TV Show".  Provide example data.
+INSERT INTO `it330mc_FA19_group1`.`Shows_Directory` (`categoryID`, `showName`, `networkID`) VALUES ('5', 'Flash', '3');
+
+-- 5. Generate SQL to "Delete A TV Show".  Provide example data.
+DELETE FROM Shows_Directory WHERE showName = 'Family Guy'; 
+
+-- 6. Generate SQL to "Produce searchable TV Show directory (search all characteristics).  Display all characteristic per TV Show in output. Sort ascending by TV Show Name.".  Provide example data.
+SELECT * FROM Shows_Directory 
+ORDER BY showName ASC; 
+
+-- 7. Generate SQL to "Add a TV Show Viewing".  Provide example data.
+INSERT INTO `it330mc_FA19_group1`.`Viewers_Activity` (`viewerID`, `episodeID`, `viewRevisits`, `viewerTimeOnline`, `viewerTimeOff`) VALUES ('2', '25', '2', '2019-11-16 19:00:00', '2019-11-16 21:00:00');
+
+-- 8. Generate SQL to "Delete a TV Show Viewing".  Provide example data.
+DELETE FROM Viewers_Activity WHERE activityID = '1'; 
+
+-- 9. Generate SQL to "Produce viewing statement between two times of day (if the viewing starts between these times). 
+-- 9a. Show all viewing characteristics in output. 
+-- 9b. Sort by date and time. 
+-- 9c. Calculate the total length of time for these viewings as well as the percentage that this length is of all viewings
+
+SELECT 
+	activityID,
+    viewerID,
+    viewRevisits,
+    viewerTimeOnline,
+    viewerTimeOff,
+    showRunTime,
+    (showRunTime / (SELECT SUM(showRunTime)FROM Episodes)) * 100 AS percent
+FROM 
+	Viewers_Activity AS va
+LEFT JOIN
+	Episodes AS ep ON ep.episodeID = va.episodeID
+WHERE 
+	viewerTimeOnline 
+BETWEEN 
+	'2019-11-01 00:00:01' AND '2019-11-03 23:59:59' 
+ORDER BY 
+	viewerTimeOnline;
+
+-- 10. Generate SQL to Produce a TV Category report.
+-- 10a. Show: Category, Number of shows per Category, Total length of time per Category, Percentage of this time per Category are of all-time viewed
+-- 10b. Sort by Percentage Length of Viewings in each Category.
+
+SELECT
+	cat.showCategory,
+	count(showName) AS numberOfShows,
+	SUM(showRunTime) AS categoryRunTime,
+    (SUM(showRunTime) / (select SUM(showRunTime) From Episodes))*100 AS percent
+FROM
+     Shows_Directory AS sho
+INNER JOIN
+	Categories AS cat ON cat.categoryID = sho.categoryID
+INNER JOIN 
+	Episodes AS ep ON ep.showID = sho.showID
+GROUP BY 
+	showCategory
+ORDER BY 
+	percent;
+    
+-- 11. Generate SQL to determine which show is each viewers favorite 
+
+SELECT
+	vi.viewerID,
+	viewerFirstName,
+	sho.showID,
+	showName,
+    COUNT(showName) AS timesViewed
+FROM
+     Shows_Directory AS sho
+INNER JOIN
+	Episodes AS ep ON ep.showID = sho.showID
+INNER JOIN 
+	Viewers as vi ON vi.viewerID = ep.showViewer
+GROUP BY
+	showName;
