@@ -1,0 +1,66 @@
+ -- USE statement determines which database to use
+ USE it330mc_FA19_group1;
+
+-- Following SQL removes (deletes) tables from the database
+DROP TABLE IF EXISTS Viewers_Activity;
+DROP TABLE IF EXISTS Favorites;
+DROP TABLE IF EXISTS Episodes;
+DROP TABLE IF EXISTS Shows_Directory;
+DROP TABLE IF EXISTS Networks;
+DROP TABLE IF EXISTS Viewers;
+DROP TABLE IF EXISTS Categories;
+
+-- Makes the categories table with appropiate columns but zero data
+CREATE TABLE Categories (
+	categoryID TINYINT PRIMARY KEY auto_increment,
+    showCategory VARCHAR(50)
+)ENGINE=INNODB;
+
+-- Makes the viewers table with appropiate columns but zero data
+CREATE TABLE Viewers (
+	viewerID TINYINT PRIMARY KEY auto_increment,
+    viewerFirstName VARCHAR(100),
+    viewerLastName VARCHAR(100)
+)ENGINE=INNODB;
+
+-- Makes the Networks table with appropiate columns but zero data
+CREATE TABLE Networks (
+	networkID TINYINT PRIMARY KEY auto_increment,
+    networkName VARCHAR(100)
+)ENGINE=INNODB;
+
+-- Makes the Shows_Directory table with appropiate columns but zero data
+CREATE TABLE Shows_Directory (
+	showID TINYINT PRIMARY KEY auto_increment,
+    categoryID TINYINT,
+    showName VARCHAR(50),
+    networkID TINYINT
+)ENGINE=INNODB;
+
+-- Makes the Episodes table with appropiate columns but zero data
+CREATE TABLE Episodes (
+	episodeID TINYINT PRIMARY KEY auto_increment,
+    showID TINYINT,
+    season TINYINT,
+    episodeNumber TINYINT,
+    showTime DATETIME,
+    showViewer INT,
+    showRunTime INT
+)ENGINE=INNODB;
+
+-- Makes the Favorites table with appropiate columns but zero data
+CREATE TABLE Favorites (
+	favID TINYINT PRIMARY KEY auto_increment,
+    viewerID TINYINT,
+    showID TINYINT
+)ENGINE=INNODB;
+
+-- Makes the Viewers_Activity table with appropiate columns but zero data
+Create TABLE Viewers_Activity (
+	activityID TINYINT PRIMARY KEY auto_increment,
+    viewerID TINYINT,
+    episodeID TINYINT,
+    viewRevisits TINYINT,
+    viewerTimeOnline TIMESTAMP,
+    viewerTimeOff TIMESTAMP
+)ENGINE=INNODB;
